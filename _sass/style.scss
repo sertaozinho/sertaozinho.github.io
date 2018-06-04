@@ -59,6 +59,12 @@ header {
     text-align: center;
   }
 
+  h3 {
+    @media (min-width: 800px) {
+      float: left;
+    }
+  }
+
   img {
     padding: 14px 15px 10px;
   }
@@ -66,10 +72,10 @@ header {
     margin-top: 40px;
   }
   @media (max-width: 800px) {
-    .nav-link a{
+    .nav-link a {
       font-size: 13px;
     }
-    .nav-link{
+    .nav-link {
       margin: 0 auto;
     }
   }
@@ -109,6 +115,11 @@ h2 {
 .sobre {
   background-color: #e9e7e1;
   padding: 100px 0;
+
+  @media (max-width: 800px) {
+    padding: 40px 0;
+  }
+
   h2 {
     font-size: 50px;
   }
@@ -118,6 +129,11 @@ h2 {
 
 .suites {
   padding: 100px 0;
+
+  @media (max-width: 800px) {
+    padding: 40px 0;
+  }
+
   h2 {
     text-align: center;
     font-size: 50px;
@@ -164,6 +180,11 @@ h2 {
 .tarifas {
   background-color: #f8f8f8;
   padding: 100px 0;
+
+  @media (max-width: 800px) {
+    padding: 40px 0;
+  }
+
   h2 {
     text-align: center;
     font-size: 50px;
@@ -275,6 +296,11 @@ h2 {
 .pesque-e-pague {
   background-color: #ef434a;
   padding: 100px 0;
+
+  @media (max-width: 800px) {
+    padding: 40px 0;
+  }
+
   h2 {
     text-align: center;
     font-size: 50px;
@@ -308,6 +334,11 @@ h2 {
 .mapa {
   background-color: #f8f8f8;
   padding: 100px 0;
+
+  @media (max-width: 800px) {
+    padding: 40px 0;
+  }
+
   h2 {
     text-align: center;
     font-size: 50px;
@@ -327,6 +358,11 @@ h2 {
 
 .eventos {
   padding: 100px 0;
+
+  @media (max-width: 800px) {
+    padding: 40px 0;
+  }
+
   h2 {
     text-align: center;
     font-size: 50px;
