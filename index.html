@@ -1,10 +1,275 @@
 ---
-layout: default
+---layout: nil
 ---
 
-{% include person-ld.html %}
-{% include header.html %}
+{% assign suites = site.data.suites %}
+{% assign tarifas = site.data.tarifas %}
+{% assign pesque = site.data.pesque %}
 
-{% include about.html %}
-{% include blog.html %}
-{% include footer.html %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <link href='//fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
+
+    <link href='//fonts.googleapis.com/css?family=Roboto%3A300%2C300italic%7CPlayfair+Display%3A700%2C400%7CMontserrat%3A400&#038;subset=latin&#038;ver=4.7.5'
+          type='text/css' media='all' rel='stylesheet' id='cherry-google-fonts-css'/>
+
+    <title>Hotel Fazenda Sertãozinho</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <script src="assets/js/jquery-1.6.2.min.js"></script>
+</head>
+
+<body>
+
+
+<div class="top-panel">
+    <div class="container">
+        <a href="https://goo.gl/maps/pW3zFtpvHJG2">
+            <i class="fa fa-map-marker"></i>
+            Endereço: Estrada de Rialto s/n - Barra Mansa - RJ
+        </a>
+        <a href="tel:+5524999911780">
+            <i class="fa fa-phone"></i>
+            Telefones: (24) 9999-11780 - (24) 3323-8057 - (24) 99945-4273
+        </a>
+    </div>
+</div>
+<header class="header clearfix">
+    <div class="container">
+        <nav>
+            <ul class="nav nav-pills float-right">
+                <li class="nav-link active">
+                    <a href="/">Home</a>
+                </li>
+                <li class="nav-link">
+                    <a href="#suites">Nossas Suítes</a>
+                </li>
+                <li class="nav-link">
+                    <a href="#tarifas">Tarifas</a>
+                </li>
+                <li class="nav-link">
+                    <a href="#pesque">Pesque e pague</a>
+                </li>
+                <li class="nav-link">
+                    <a href="#eventos">Eventos</a>
+                </li>
+                <li class="nav-link">
+                    <a href="#mapa">Como chegar</a>
+                </li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">
+            <img src="assets/images2/logo.png" alt="Hotel Fazenda Sertãozinho">
+        </h3>
+    </div>
+</header>
+
+<div class="sobre">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="assets/images2/sobre.jpg" class="img-fluid"/>
+            </div>
+            <div class="col-lg-6">
+                <h2>Sobre o Hotel</h2>
+                <p>
+                    O Hotel Fazenda Sertãozinho localiza-se às margens da Reserva do Cafundó no Distrito de Rialto,
+                    numa região que oferece sempre um clima agradável e o ar puro que só uma mata intensa e
+                    preservada tem, com toda riqueza de fauna e flora disponível para você se encantar com as
+                    belezas naturais. É sempre um prazer acordar com o frescor do dia nascendo com o cheiro de mato
+                    molhado, flores e o canto dos pássaros. Propiciando assim um contato pleno com a natureza.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="suites" class="suites">
+    <div class="container">
+        <h2>Nossas suítes</h2>
+        <p>
+            O Hotel possui 13 suítes confortáveis e mobiliadas, uma pedida perfeita descansar após um dia cheio de
+            atividades.
+        </p>
+        <div class="row">
+            {% for suite in suites %}
+            <div class="col-md-4">
+                <img src="assets/images2/suites/{{suite.imagem}}" class="img-fluid">
+                <h3>{{ suite.nome }}</h3>
+                <h4>
+                    <span class="currency">R$</span>
+                    <span class="number">{{ suite.preco }}</span>
+                    <span class="per-night">/ por noite</span>
+                </h4>
+                <ul>
+                    {% for item in suite.itens %}
+                    <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div id="tarifas" class="tarifas">
+    <div class="container">
+        <h2>Venha passar o dia conosco!</h2>
+        <p>
+            Aproveite bem seus de descanso no hotel ouvindo o canto dos pássaros, sentindo a brisa fresca do ar
+            puro, observando a beleza dos nossos jardins e usufruindo de muito lazer.
+        </p>
+        <div class="row">
+            {% for tarifa in tarifas %}
+            <div class="col-lg-3 col-md-6">
+                <div class="box">
+                    <h3>{{ tarifa.nome }}</h3>
+                    <h4>
+                        <span class="number">R${{ tarifa.preco }}</span>
+                        / por pessoa
+                    </h4>
+                    <ul>
+                        {% for item in tarifa.itens %}
+                        {% if item contains '✓' %}
+                        {% assign className = "includes" %}
+                        {% else %}
+                        {% assign className = "excludes" %}
+                        {% endif %}
+
+                        <li class="{{ className }}">
+                            {{ item | replace_first: '✓', '' | replace_first: '✕', ''}}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <p class="criancas">
+            Obs.: Crianças de 0 a 5 anos não pagam, acompanhadas pelos responsáveis legais. Não é permitida a
+            entrada com alimentos e bebidas.
+        </p>
+    </div>
+</div>
+
+<div id="pesque" class="pesque-e-pague">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="assets/images2/pesque/pesque.jpg" class="img-fluid"/>
+            </div>
+            <div class="col-lg-6">
+                <h2>Venha para o pesque e pague</h2>
+                <p>
+                    Nosso pesque e pague é composto por 5 tanques de 40 x 20 metros de espelho de água cada, nos quais é
+                    possível pescar exemplares de peixes como Tilápia, Pacú, Pial, Carpa, Pirapitinga, Pintado, Dourado
+                    etc.
+                </p>
+                <h3>Preços</h3>
+                {% for peixe in pesque %}
+                <ul>
+                    <li>{{ peixe.nome }}: <span>R$ {{ peixe.preco }}/Kg</span></li>
+                </ul>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="eventos" class="eventos">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="assets/images2/eventos/lua-de-mel.jpg" class="img-fluid">
+                <h3>Lua de Mel no Hotel</h3>
+                <p>
+                    Conquiste seu amor, venha passar sua Lua de Mel em nosso Hotel. Café da manhã, almoço e jantar
+                    em
+                    todos os dias. Em nosso Pesque e Pague vocês poderão ter momentos de descontração a dois. Vocês
+                    podem escolher qualquer uma de nossas suítes, ou o Chalé (Xodó) que é afastada das demais.
+                    Contamos também com 2 piscinas adulto para sua escolha e nossos jardins proporcionarão belas
+                    caminhadas.
+                </p>
+            </div>
+            <div class="col-lg-4">
+                <img src="assets/images2/eventos/sua-festa.png" class="img-fluid">
+                <h3>Sua Festa na Fazenda</h3>
+                <p>
+                    Oferecemos estrutura e espaço ideal para sua festa. Casamentos, aniversários de 15 anos,
+                    reuniões, eventos etc. O clima agradável e o ar puro que só uma mata intensa e preservada tem e
+                    toda a riqueza de fauna e flora são os ingredientes indispensáveis para agradar seus
+                    convidados.
+                </p>
+            </div>
+            <div class="col-lg-4">
+                <img src="assets/images2/eventos/grupos.jpg" class="img-fluid">
+                <h3>Pacote para grupos</h3>
+                <p>
+                    Oferecemos também programas especiais para a Melhor Idade, Excursões de Escolas, Igrejas,
+                    Famílias e Empresas que queiram aproveitar o conforto e tranquilidade do nosso hotel.
+                    O dia será preparado com toda a experiência e dedicação, para você aproveitar em meio à natureza
+                    de muita diversão.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mapa" class="mapa">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2>Como chegar</h2>
+                <p>
+                    Ao chegar na praça principal de Rialto, vire à primeira direita. Após atravessar uma pequena ponte,
+                    vire
+                    à direita. Siga em frente na estrada passando por mais uma ponte seguida de um mata-burro. Então
+                    mantenha a direita e suba a estrada ao pé na represa. Para maiores orientações siga as placas
+                    indicativas no trecho. </p>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h3>18 Km</h3>
+                        <h4>de Barra Mansa</h4>
+                    </div>
+                    <div class="col-lg-6">
+                        <h3>30 Km</h3>
+                        <h4>de Volta Redonda</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <iframe width="100%" height="350" frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/directions?origin=place_id:ChIJrUFmTIabngARTesKYJaF2xk&destination=place_id:ChIJobY5h_mCngARwyDCAAdfs2A&key=AIzaSyAspq9YN4H-qp3MaSmEDNzFDz5IrnxXUqE"
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</main>
+
+<footer class="footer">
+    <div class="container">
+        © Hotel Fazenda Sertãozinho 2018 Todos direitos reservados
+    </div>
+</footer>
+</div>
+
+
+</body>
+</html>
+

@@ -1,0 +1,26 @@
+- nome: Suite Básica
+  imagem: basica.jpg
+  preco: 160
+  itens:
+  - 'Adultos: 2'
+  - 'Categorias: Triplo'
+  - 'Facilidades: Café da manhã, Pensão com comida mineira, TV, Ventilador de teto'
+  - 'Área: 24m²'
+
+- nome: Suíte Luxo
+  preco: 170
+  imagem: luxo.jpg
+  itens:
+  - 'Adultos: 2'
+  - 'Categorias: Triplo'
+  - 'Facilidades: Café da manhã, Pensão com comida mineira, TV, Ventilador de teto'
+  - 'Área: 24m²'
+
+- nome: Suíte Xodó
+  imagem: xodo.jpg
+  preco: 180
+  itens:
+  - 'Adultos: 2'
+  - 'Categorias: Triplo'
+  - 'Facilidades: Café da manhã, Pensão com comida mineira, TV, Ventilador de teto'
+  - 'Área: 24m²'

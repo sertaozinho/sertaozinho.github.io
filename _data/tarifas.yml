@@ -1,0 +1,32 @@
+- nome: Passar o dia
+  preco: 30
+  itens:
+  - ✓ Piscina, sauna e salão de jogos
+  - ✕ Café da manhã
+  - ✕ Almoço com comida mineira
+  - ✕ Churrasqueira liberada e guarnições (arroz, vinagrete e farofa)
+
+- nome: Dia com churrasqueira
+  preco: 40
+  itens:
+  - ✓ Piscina, sauna e salão de jogos
+  - ✓ Churrasqueira liberada e guarnições (arroz, vinagrete e farofa)
+  - ✕ Café da manhã
+  - ✕ Almoço com comida mineira
+
+- nome: Dia com almoço
+  preco: 54
+  itens:
+  - ✓ Piscina, sauna e salão de jogos
+  - ✓ Almoço com comida mineira
+  - ✕ Café da manhã
+  - ✕ Churrasqueira liberada e guarnições (arroz, vinagrete e farofa)
+
+- nome: Dia completo
+  preco: 65
+  itens:
+  - ✓ Piscina, sauna e salão de jogos
+  - ✓ Café da manhã
+  - ✓ Almoço com comida mineira
+  - ✕ Churrasqueira liberada e guarnições (arroz, vinagrete e farofa)
+
